@@ -169,5 +169,50 @@ void loop() {
       Serial.println(temp_ambient);
       digitalWrite(ledPin, LOW);
     }
+    if(msg.id == 0x101) {
+      digitalWrite(ledPin, HIGH);
+      Serial.print("Received message with ID: ");
+      Serial.println(msg.id, HEX);
+      Serial.print("Message contents: ");
+      Serial.println();
+      float temp_object = ((msg.buf[0] << 8) | msg.buf[1]) / 100.;
+      Serial.print("Temp: ");
+      Serial.println(temp_object);
+
+      float temp_ambient = ((msg.buf[2] << 8) | msg.buf[3]) / 100.;
+      Serial.print("Ambient: ");
+      Serial.println(temp_ambient);
+      digitalWrite(ledPin, LOW);
+    }
+    if(msg.id == 0x102) {
+      digitalWrite(ledPin, HIGH);
+      Serial.print("Received message with ID: ");
+      Serial.println(msg.id, HEX);
+      Serial.print("Message contents: ");
+      Serial.println();
+      float temp_object = ((msg.buf[0] << 8) | msg.buf[1]) / 100.;
+      Serial.print("Temp: ");
+      Serial.println(temp_object);
+
+      float temp_ambient = ((msg.buf[2] << 8) | msg.buf[3]) / 100.;
+      Serial.print("Ambient: ");
+      Serial.println(temp_ambient);
+      digitalWrite(ledPin, LOW);
+    }
+    if(msg.id == 0x103) {
+      digitalWrite(ledPin, HIGH);
+      Serial.print("Received message with ID: ");
+      Serial.println(msg.id, HEX);
+      Serial.print("Message contents: ");
+      Serial.println();
+      float temp_object = ((msg.buf[0] << 8) | msg.buf[1]) / 100.;
+      Serial.print("Temp: ");
+      Serial.println(temp_object);
+
+      float temp_ambient = ((msg.buf[2] << 8) | msg.buf[3]) / 100.;
+      Serial.print("Ambient: ");
+      Serial.println(temp_ambient);
+      digitalWrite(ledPin, LOW);
+    }
   }
 }
