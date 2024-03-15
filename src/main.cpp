@@ -48,7 +48,7 @@ uint16_t readRegister16(uint8_t reg) {
   Wire.endTransmission(false);
   int n = Wire.requestFrom(INC_ADDRESS, 4);  
   uint16_t data[20];
-  int i =0;
+  int i = 0;
   while(Wire.available()){
     data[i] = Wire.read();
     i++;
@@ -152,6 +152,22 @@ void loop() {
   bool readResult = CANbus.read(msg);
   Serial.print("Reading Message: ");
   Serial.println(readResult);
+
+  // if(readResult){
+  //   digitalWrite(ledPin, HIGH);
+  //   Serial.print("Received message with ID: ");
+  //   Serial.println(msg.id, HEX);
+  //   Serial.print("Message contents: ");
+  //   Serial.println();
+  //   float temp_object = ((msg.buf[0] << 8) | msg.buf[1]) / 100.;
+  //   Serial.print("Temp: ");
+  //   Serial.println(temp_object);
+
+  //   float temp_ambient = ((msg.buf[2] << 8) | msg.buf[3]) / 100.;
+  //   Serial.print("Ambient: ");
+  //   Serial.println(temp_ambient);
+  //   digitalWrite(ledPin, LOW);
+  // }
 
   if (readResult) {
     if(msg.id == 0x100) {
